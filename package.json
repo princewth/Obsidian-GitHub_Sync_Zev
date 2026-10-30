@@ -1,0 +1,31 @@
+{
+  "name": "github-sync-zev",
+  "version": "1.1.1",
+  "description": "GitHub folder workspaces and standalone vault snapshots with native editing and linked reading views.",
+  "private": true,
+  "license": "MIT",
+  "author": "Zev",
+  "scripts": {
+    "dev": "node esbuild.config.mjs --watch",
+    "build": "tsc --noEmit && node esbuild.config.mjs",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "check:privacy": "node scripts/check-public.mjs",
+    "check": "npm run typecheck && npm test && npm run build && npm run check:privacy",
+    "package": "npm run check && node scripts/package.mjs"
+  },
+  "dependencies": {
+    "node-diff3": "^3.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "esbuild": "^0.25.0",
+    "fake-indexeddb": "^6.0.0",
+    "fflate": "^0.8.2",
+    "jsdom": "^26.0.0",
+    "obsidian": "^1.11.4",
+    "typescript": "^5.9.0",
+    "vitest": "^3.2.0"
+  }
+}

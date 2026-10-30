@@ -1,0 +1,17 @@
+node_modules/
+main.js
+dist/
+coverage/
+*.tsbuildinfo
+.DS_Store
+.env
+.env.*
+!.env.example
+.obsidian/
+.local/
+data.json
+*.pem
+*.key
+*.log
+.npmrc
+*.map

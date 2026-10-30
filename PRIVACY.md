@@ -1,6 +1,6 @@
 # Privacy and data handling
 
-GitHub Sync _ Zev is authored by Zev. The public distribution contains plugin code and documentation, not a user's connections, notes, or credentials.
+GitHub Sync - Zev is authored by Zev. The public distribution contains plugin code and documentation, not a user's connections, notes, or credentials.
 
 ## Data inventory
 

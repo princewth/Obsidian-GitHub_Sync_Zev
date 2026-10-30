@@ -1,4 +1,4 @@
-# GitHub Sync _ Zev
+# GitHub Sync - Zev
 
 Open a GitHub repository folder inside Obsidian, edit Markdown with the native editor, and synchronize changes without installing Git.
 
@@ -37,9 +37,9 @@ Original plugin settings, tokens, workspace history, caches, and app preferences
 Until this plugin has been accepted into the Obsidian community directory, install a release manually:
 
 1. Use Obsidian 1.11.4 or newer.
-2. Download `github-sync-zev-1.1.0.zip` from this repository's Releases page.
+2. Download `github-sync-zev-1.1.1.zip` from this repository's Releases page.
 3. Extract its `github-sync-zev` folder into `<vault>/.obsidian/plugins/`. If you use a custom configuration directory, use that directory instead of `.obsidian`.
-4. Reload Obsidian, open **Settings → Community plugins**, and enable **GitHub Sync _ Zev**.
+4. Reload Obsidian, open **Settings → Community plugins**, and enable **GitHub Sync - Zev**.
 
 Alternatively, put `main.js`, `manifest.json`, and `styles.css` from the same release in that plugin folder. Keep the accompanying license and third-party notices when redistributing it. This project is independent of Obsidian and GitHub.
 
@@ -115,4 +115,6 @@ npm run package
 
 The package command type-checks, runs tests, builds the plugin, checks the public-file allowlist for sensitive material, and creates installable/source ZIPs and SHA-256 checksums in `dist/`. Source maps, vault files, device state, credentials, and developer dependencies are excluded.
 
-Tests cover engine recovery and races, GitHub request contracts, path boundaries, IndexedDB persistence, native editor protection, full-vault capture/export, link conversion and graph construction, publication recovery, and UI/lifecycle integration using a simulated Obsidian host. Actual desktop/mobile installation checks remain necessary before a public release
+Tests cover engine recovery and races, GitHub request contracts, path boundaries, IndexedDB persistence, native editor protection, full-vault capture/export, link conversion and graph construction, publication recovery, and UI/lifecycle integration using a simulated Obsidian host. Actual desktop/mobile installation checks remain necessary before a public release; see [the release checklist](docs/TESTING.md).
+
+The bundled three-way merge dependency is credited in [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
