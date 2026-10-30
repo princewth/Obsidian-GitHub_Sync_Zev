@@ -1,7 +1,7 @@
 {
   "id": "github-sync-zev",
   "name": "GitHub Sync - Zev",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "minAppVersion": "1.11.4",
   "description": "Connect GitHub folders, sync notes offline, and save standalone vaults with linked Markdown reading views.",
   "author": "Zev",

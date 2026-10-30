@@ -1,3 +1,10 @@
+# 1.1.2
+
+- Restore the source, tests, scripts, documentation, and workflows to their intended repository directories.
+- Build and publish matching releases automatically, attaching main.js, manifest.json, and styles.css directly before publication.
+- Include the version in release titles and verify the published required assets.
+- Resolve blocking official ESLint findings without changing connection IDs or stored credentials.
+
 # 1.1.1
 
 - Replace unsupported punctuation in the public display name with an allowed hyphen: GitHub Sync - Zev.

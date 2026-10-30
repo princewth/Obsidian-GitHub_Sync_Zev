@@ -6,10 +6,17 @@ const ASSETS = new Set(['png', 'jpg', 'jpeg', 'gif', 'webp', 'avif', 'bmp', 'svg
 const RESERVED = /^(con|prn|aux|nul|com[0-9]|lpt[0-9])(?:\.|$)/i;
 const SENSITIVE = /^(?:credentials?|secrets?|id_rsa|id_ed25519|service[-_]account)(?:\.|$)/i;
 
+function hasControlCharacters(value: string): boolean {
+  return Array.from(value).some(character => {
+    const code = character.charCodeAt(0);
+    return code < 32 || code === 127;
+  });
+}
+
 export function safePath(value: string, allowEmpty = false): string {
   const path = value.replace(/\/$/, '');
   if (!path && allowEmpty) return '';
-  if (!path || path.length > 1000 || /[\\\u0000-\u001f\u007f]/.test(path)) throw new UserError('Use a relative folder or file path.');
+  if (!path || path.length > 1000 || path.includes('\\') || hasControlCharacters(path)) throw new UserError('Use a relative folder or file path.');
   for (const part of path.split('/')) {
     if (!part || part === '.' || part === '..' || part.startsWith('.') || /[<>:"|?*]/.test(part) || /[. ]$/.test(part) || RESERVED.test(part)) {
       throw new UserError('Hidden, reserved, absolute, or unsafe paths cannot be connected.');
@@ -55,7 +62,7 @@ export function validateIdentity(owner: string, repo: string): void {
 }
 
 export function validateBranch(branch: string): void {
-  if (!branch || branch.length > 255 || /[\s~^:?*\[\\\u0000-\u001f\u007f]/.test(branch) || branch.includes('..') || branch.includes('@{') || branch.startsWith('/') || branch.endsWith('/') || branch.endsWith('.') || branch.split('/').some(p => !p || p.startsWith('.') || p.endsWith('.lock'))) {
+  if (!branch || branch.length > 255 || /[\s~^:?*]/.test(branch) || branch.includes('[') || branch.includes('\\') || hasControlCharacters(branch) || branch.includes('..') || branch.includes('@{') || branch.startsWith('/') || branch.endsWith('/') || branch.endsWith('.') || branch.split('/').some(p => !p || p.startsWith('.') || p.endsWith('.lock'))) {
     throw new UserError('Enter a valid branch name.');
   }
 }

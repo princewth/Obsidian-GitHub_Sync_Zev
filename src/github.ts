@@ -232,7 +232,7 @@ export class GitHubClient implements RemoteRepository {
   private async exportWrite<T>(path: string, secretId: string, body: unknown, check: () => void): Promise<T> {
     check();
     const wait = this.lastExportWrite + this.exportWriteSpacingMs - Date.now();
-    if (wait > 0) await new Promise<void>(resolve => setTimeout(resolve, wait));
+    if (wait > 0) await new Promise<void>(resolve => window.setTimeout(resolve, wait));
     check();
     this.lastExportWrite = Date.now();
     return this.request<T>(path, secretId, 'POST', body);

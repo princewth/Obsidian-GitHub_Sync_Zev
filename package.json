@@ -1,6 +1,6 @@
 {
   "name": "github-sync-zev",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "GitHub folder workspaces and standalone vault snapshots with native editing and linked reading views.",
   "private": true,
   "license": "MIT",

@@ -2,7 +2,7 @@
 
 The public name is **GitHub Sync - Zev**, author **Zev**, plugin ID **github-sync-zev**. No personal GitHub account, private repository URL, device path, or token is embedded. Replace the repository placeholders below with the public repository you own; do not put credentials into its URL.
 
-The [manifest naming rules](https://docs.obsidian.md/Reference/Manifest#name) permit Basic Latin characters and only hyphens, plus signs, and parentheses as punctuation. Underscores are not permitted in the display name. Version 1.1.1 corrects the name while keeping the plugin ID stable. Commit the corrected root manifest on the default branch and publish the matching 1.1.1 release before submitting again.
+The [manifest naming rules](https://docs.obsidian.md/Reference/Manifest#name) permit Basic Latin characters and only hyphens, plus signs, and parentheses as punctuation. Underscores are not permitted in the display name. Version 1.1.1 corrected the name while keeping the plugin ID stable; version 1.1.2 repairs source layout and automatic asset publication. Commit the corrected root manifest on the default branch and publish the matching 1.1.2 release before submitting again.
 
 ## Prepare the public repository
 
@@ -23,8 +23,8 @@ Inspect `dist/`:
 
 - `main.js`, `manifest.json`, `styles.css`: the Obsidian release assets.
 - `LICENSE`, `THIRD_PARTY_NOTICES.md`: redistribution notices.
-- `github-sync-zev-1.1.1.zip`: installable plugin folder.
-- `github-sync-zev-1.1.1-source.zip`: allowlisted source project.
+- `github-sync-zev-1.1.2.zip`: installable plugin folder.
+- `github-sync-zev-1.1.2-source.zip`: allowlisted source project.
 - `SHA256SUMS`: checksums for the distributed assets.
 
 No `data.json`, `.env`, `.npmrc`, private key, source map, developer dependency tree, device database, or vault cache is packaged. The public-file scanner detects common credential formats and private absolute path formats; it is not a promise that arbitrary future edits contain no sensitive text. Inspect changes before publishing.
@@ -33,11 +33,11 @@ Complete [TESTING.md](TESTING.md) on your actual Obsidian installations and a di
 
 ## GitHub release
 
-The included GitHub Actions workflow publishes when you push a plain version tag matching the manifest, for example `1.1.1` (without `v`). It runs the package checks and uploads the required Obsidian assets, both ZIPs, licenses, and checksums.
+The included GitHub Actions workflow builds and publishes when the manifest changes on `main`, when the publishing workflow changes, on a manual workflow run, or when you push a matching plain version tag such as `1.1.2` (without `v`). It runs package checks, creates a draft release, attaches the required files directly, publishes it with the version in the title, and verifies the assets. The release tag targets the exact source commit that was built.
 
-Alternatively, create a GitHub Release manually with tag `1.1.1` and attach the files listed above. The three Obsidian assets must be directly attached to the release, not only nested inside a ZIP. No personal access token needs to be committed; the workflow uses GitHub's built-in short-lived repository token.
+Alternatively, create a GitHub Release manually with tag `1.1.2` and attach the files listed above. The three Obsidian assets must be directly attached to the release, not only nested inside a ZIP. No personal access token needs to be committed; the workflow uses GitHub's built-in short-lived repository token.
 
-For the manual GitHub interface: open your plugin repository, go to **Releases → Draft a new release**, create tag **1.1.1** on the default branch, and attach `main.js`, `manifest.json`, and `styles.css` from the installable ZIP as individual files. Include the licenses/notices as additional assets, then publish the release. The tag exactly matches the current root manifest's version.
+For the manual GitHub interface: open your plugin repository, go to **Releases → Draft a new release**, create tag **1.1.2** on the default branch, and attach `main.js`, `manifest.json`, and `styles.css` from the installable ZIP as individual files. Include the licenses/notices as additional assets, then publish the release. The tag exactly matches the current root manifest's version.
 
 ## Submit to the Obsidian community directory
 

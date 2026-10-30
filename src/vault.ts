@@ -53,7 +53,7 @@ export class VaultBridge implements LocalFiles {
       } else if (item instanceof TFile && supported(relative)) {
         if (item.stat.size > this.maxBytes()) throw new UserError('A local file exceeds the configured size limit. Increase the limit or move it outside this workspace.');
         result[relative] = await this.readFile(item);
-        totalBytes += decode(result[relative]!).length;
+        totalBytes += decode(result[relative]).length;
         if (totalBytes > MAX_WORKSPACE_BYTES) throw new UserError('The selected files exceed the 100 MB workspace limit. Connect a smaller folder.');
         if (++count > 20000) throw new UserError('Connect a folder containing fewer than 20,000 supported files.');
       }

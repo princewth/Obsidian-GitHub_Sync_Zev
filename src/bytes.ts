@@ -10,7 +10,7 @@ export function decode(base64: string): Uint8Array {
 
 export function fromText(text: string): string { return encode(new TextEncoder().encode(text)); }
 export function toText(base64: string): string { return new TextDecoder('utf-8', { fatal: true, ignoreBOM: true }).decode(decode(base64)); }
-export function asBuffer(bytes: Uint8Array): ArrayBuffer { return bytes.slice().buffer as ArrayBuffer; }
+export function asBuffer(bytes: Uint8Array): ArrayBuffer { return bytes.slice().buffer; }
 
 export async function blobSha(base64: string): Promise<string> {
   const bytes = decode(base64);

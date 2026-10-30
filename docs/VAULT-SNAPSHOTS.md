@@ -49,4 +49,4 @@ GitHub has no native Obsidian runtime. Note embeds become navigable references r
 
 ## Upgrade
 
-Install the 1.1.1 release over the same `github-sync-zev` plugin directory. Existing 1.0 connection records, SecretStorage tokens, baselines, and conflicts keep their existing device keys and schema. No reset or reconnect is required for a normal upgrade. Keep a copy of important notes and unresolved alternate conflict versions before any application upgrade.
+Install the 1.1.2 release over the same `github-sync-zev` plugin directory. Existing 1.0 connection records, SecretStorage tokens, baselines, and conflicts keep their existing device keys and schema. No reset or reconnect is required for a normal upgrade. Keep a copy of important notes and unresolved alternate conflict versions before any application upgrade.

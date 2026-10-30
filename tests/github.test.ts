@@ -251,6 +251,7 @@ describe('GitHub REST integration contracts', () => {
 
   it('paces export writes while leaving ordinary read requests immediate', async () => {
     vi.useFakeTimers(); vi.setSystemTime(10000);
+    vi.stubGlobal('window', { setTimeout: (callback: () => void, delay: number) => setTimeout(callback, delay) });
     try {
       const plan = buildVaultExport({ files: { 'a.md': fromText('A') }, links: [], blocks: {}, excluded: 0 }, 1024 * 1024);
       const times: number[] = [];
@@ -264,6 +265,6 @@ describe('GitHub REST integration contracts', () => {
       await pending;
       expect(times).toHaveLength(2);
       expect(times[1]! - times[0]!).toBeGreaterThanOrEqual(800);
-    } finally { vi.useRealTimers(); }
+    } finally { vi.useRealTimers(); vi.unstubAllGlobals(); }
   });
 });

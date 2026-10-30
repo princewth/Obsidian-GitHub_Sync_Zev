@@ -1,7 +1,7 @@
 import { blobSha } from './bytes';
 import { mergeText } from './merge';
 import { checkCollisions, isText, safePath, supported } from './paths';
-import { Baseline, ConcurrentUpdate, Conflict, Connection, Content, LocalFiles, MountState, RemoteRepository, StateRepository, SyncStatus, UserError } from './types';
+import { ConcurrentUpdate, Conflict, Connection, Content, LocalFiles, MountState, RemoteRepository, StateRepository, SyncStatus, UserError } from './types';
 
 export class SyncEngine {
   private readonly running = new Set<string>();
@@ -219,7 +219,7 @@ export class SyncEngine {
   async add(connection: Connection): Promise<void> {
     if (this.store.data.mounts[connection.id]) throw new UserError('This workspace is already connected.');
     this.store.data.mounts[connection.id] = {
-      connection, baseline: {} as Record<string, Baseline>, conflicts: {}, pending: 0,
+      connection, baseline: {}, conflicts: {}, pending: 0,
       lastSync: null, lastHead: null, allowMissingFolder: false, deletionReview: null, inFlight: null
     };
     await this.store.save();

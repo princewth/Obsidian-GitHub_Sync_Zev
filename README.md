@@ -37,7 +37,7 @@ Original plugin settings, tokens, workspace history, caches, and app preferences
 Until this plugin has been accepted into the Obsidian community directory, install a release manually:
 
 1. Use Obsidian 1.11.4 or newer.
-2. Download `github-sync-zev-1.1.1.zip` from this repository's Releases page.
+2. Download `github-sync-zev-1.1.2.zip` from this repository's Releases page.
 3. Extract its `github-sync-zev` folder into `<vault>/.obsidian/plugins/`. If you use a custom configuration directory, use that directory instead of `.obsidian`.
 4. Reload Obsidian, open **Settings → Community plugins**, and enable **GitHub Sync - Zev**.
 

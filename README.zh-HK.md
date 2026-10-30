@@ -24,7 +24,7 @@
 
 呢個專案準備好手動安裝；Obsidian 社群商店收錄仍然要另外提交審核。
 
-1. 下載 release 嘅 `github-sync-zev-1.1.1.zip`。
+1. 下載 release 嘅 `github-sync-zev-1.1.2.zip`。
 2. 將入面嘅 `github-sync-zev` folder 放入 `<vault>/.obsidian/plugins/`。如果有自訂設定目錄，就改用該目錄。
 3. 重新開 Obsidian，到「設定 → 第三方外掛」啟用 **GitHub Sync - Zev**。
 

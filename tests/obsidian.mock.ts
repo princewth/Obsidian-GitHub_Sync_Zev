@@ -14,7 +14,8 @@ export function installDOM(): void {
       this.append(element);
       return element;
     },
-    createDiv(this: HTMLElement, options: { text?: string; cls?: string } = {}) { return this.createEl('div', options); }
+    createDiv(this: HTMLElement, options: { text?: string; cls?: string } = {}) { return this.createEl('div', options); },
+    createSpan(this: HTMLElement, options: { text?: string; cls?: string } = {}) { return this.createEl('span', options); }
   });
 }
 

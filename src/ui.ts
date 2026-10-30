@@ -81,7 +81,7 @@ export class ConnectModal extends Modal {
     this.localCount = Object.keys(local).length;
     this.differentCount = 0;
     for (const [path, content] of Object.entries(local)) {
-      if (preview.files[path] && await blobSha(content) !== preview.files[path]!.sha) this.differentCount++;
+      if (preview.files[path] && await blobSha(content) !== preview.files[path].sha) this.differentCount++;
     }
     this.preview = preview;
   }
@@ -243,8 +243,8 @@ export class ExplorerView extends ItemView {
     card.createEl('h4', { text: connection.localPath });
     card.createDiv({ text: `${connection.owner}/${connection.repo}`, cls: 'gsz-remote-label' });
     const route = card.createDiv({ cls: 'gsz-route' });
-    route.createEl('span', { text: connection.branch, cls: 'gsz-branch-chip' });
-    route.createEl('span', { text: `/${connection.remotePath}`, cls: 'gsz-muted' });
+    route.createSpan({ text: connection.branch, cls: 'gsz-branch-chip' });
+    route.createSpan({ text: `/${connection.remotePath}`, cls: 'gsz-muted' });
     card.createDiv({ text: status.message, cls: `gsz-state gsz-state-${status.phase}` });
     card.createDiv({ cls: 'gsz-signal-line', attr: { 'aria-hidden': 'true' } });
     if (mount.lastSync) card.createDiv({ text: `Last completed: ${new Date(mount.lastSync).toLocaleString()}`, cls: 'gsz-muted' });
@@ -389,7 +389,7 @@ export class PluginSettings extends PluginSettingTab {
   display(): void {
     const root = this.containerEl;
     root.empty();
-    new Setting(root).setName('GitHub Sync - Zev').setHeading();
+    new Setting(root).setName('Connection').setHeading();
     root.createEl('p', { text: 'Open GitHub folders in your vault. Connection state and conflict history stay in this device’s IndexedDB. This plugin does not write a data.json settings file.', cls: 'gsz-muted' });
     this.tokenSetting(root);
     new Setting(root).setName('Remote refresh interval').setDesc('Seconds, from 30 to 3600. Refresh runs while Obsidian is visible. Mobile background execution is controlled by the operating system.').addText(text => text
@@ -450,7 +450,7 @@ export class PluginSettings extends PluginSettingTab {
   private connection(root: HTMLElement, mount: MountState): void {
     const connection = mount.connection;
     const card = root.createDiv({ cls: 'gsz-settings-workspace' });
-    card.createEl('h4', { text: connection.localPath });
+    new Setting(card).setName(connection.localPath).setHeading();
     card.createEl('p', { text: `${connection.owner}/${connection.repo} · ${connection.branch} · /${connection.remotePath}` });
     new Setting(card).setName('Paused').setDesc('Keep local files and stop network sync for this connection.').addToggle(toggle => toggle.setValue(connection.paused).onChange(value => this.updateConnection(mount, { paused: value })));
     new Setting(card).setName('Access').addDropdown(dropdown => dropdown.addOption('read-write', 'Read and write').addOption('read-only', 'Read-only').setValue(connection.access).onChange(value => this.updateConnection(mount, { access: value as Connection['access'] })));

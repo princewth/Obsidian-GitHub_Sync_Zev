@@ -44,7 +44,7 @@ export interface VaultExportPlan {
 export function isMarkdown(path: string): boolean { return ['md', 'markdown'].includes(extension(path)); }
 
 export function markdownLabel(text: string): string {
-  return text.replace(/[\r\n]/g, ' ').replace(/\\/g, '\\\\').replace(/[\[\]*_`]/g, '\\$&').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  return text.replace(/[\r\n]/g, ' ').replace(/\\/g, '\\\\').replace(/[[\]*_`]/g, '\\$&').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 }
 
 export function relativeURL(source: string, target: string): string {
