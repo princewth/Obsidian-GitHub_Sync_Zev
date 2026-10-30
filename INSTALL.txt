@@ -1,0 +1,1 @@
+Close Obsidian. Copy this folder into <vault>/.obsidian/plugins/, then enable GitHub Sync _ Zev under Community plugins. Minimum Obsidian: 1.11.4.
