@@ -115,4 +115,4 @@ npm run package
 
 The package command type-checks, runs tests, builds the plugin, checks the public-file allowlist for sensitive material, and creates installable/source ZIPs and SHA-256 checksums in `dist/`. Source maps, vault files, device state, credentials, and developer dependencies are excluded.
 
-Tests cover engine recovery and races, GitHub request contracts, path boundaries, IndexedDB persistence, native editor protection, full-vault capture/export, link conversion and graph construction, publication recovery, and UI/lifecycle integration using a simulated Obsidian host. Actual desktop/mobile installation checks remain necessary before a public release; see [the release checklist](docs/TESTING.md).
+Tests cover engine recovery and races, GitHub request contracts, path boundaries, IndexedDB persistence, native editor protection, full-vault capture/export, link conversion and graph construction, publication recovery, and UI/lifecycle integration using a simulated Obsidian host. Actual desktop/mobile installation checks remain necessary before a public release
